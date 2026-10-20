@@ -1,8 +1,11 @@
+from database.database import create_tables
 from animal import Animal, Elefante, Leao, Macaco
 from tratador import Tratador
 from recinto import Recinto
 from administrador import Administrador
 from arquivos import salvar_atividade, ler_atividades
+
+create_tables()
 
 admin = Administrador()
 

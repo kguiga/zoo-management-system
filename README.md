@@ -49,26 +49,47 @@ Os atributos e métodos foram organizados dentro de classes responsáveis por ca
 O sistema utiliza blocos `try/except` para validar entradas do usuário e evitar falhas durante a execução.
 
 ### Manipulação de Arquivos
-As atividades realizadas são armazenadas no arquivo `atividades.txt` e podem ser consultadas posteriormente.
+As atividades realizadas são armazenadas no banco de dados `zoo.db` e podem ser consultadas posteriormente.
 
 ---
 
 ## 📂 Estrutura do Projeto
 
 ```text
-zoologico/
+zoo-management-system/
+
+src/
+
+├── models/
+│   ├── animal.py
+│   ├── recinto.py
+│   └── tratador.py
 │
-├── main.py
-├── animal.py
-├── tratador.py
-├── recinto.py
-├── administrador.py
-├── arquivos.py
-├── atividades.txt
-└── README.md
+├── services/
+│   └── administrador.py
+│
+├── repository/
+│   └── arquivos.py
+│
+└── main.py
+
+docs/
+images/
+README.md
 ```
 
 ---
+
+## Diagrama do Sistema
+├── Animal
+│   ├── Leao
+│   ├── Macaco
+│   └── Elefantet
+│
+├── Tratador
+├── Administrador
+├── Recinto
+
 
 ## ▶️ Como Executar
 
