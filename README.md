@@ -1,14 +1,8 @@
 # 🦁 Zoo Management System
 
-## 👩‍💻 Desenvolvido por
-
-Karina Gabriela Ferreira de Oliveira
-
----
-
 ## 📖 Descrição
 
-Projeto desenvolvido inicialmente como trabalho final da disciplina de Programação Orientada a Objetos (POO) e posteriormente evoluído com persistência de dados utilizando SQLite, testes automatizados com Pytest e versionamento utilizando Git e GitHub.
+Sistema de gerenciamento de zoológico desenvolvido em Python para aplicação prática de conceitos de Programação Orientada a Objetos (POO), persistência de dados com SQLite, testes automatizados utilizando Pytest e versionamento utilizando Git e GitHub.
 
 O sistema simula o gerenciamento de um zoológico, permitindo o controle de animais, tratadores, recintos e atividades diárias, como alimentação, tratamento veterinário, limpeza de recintos e banho de sol. Além disso, o administrador pode acompanhar e registrar todas as atividades realizadas.
 
@@ -69,7 +63,7 @@ O sistema simula o gerenciamento de um zoológico, permitindo o controle de anim
 ### Classes
 
 - Animal
-- Leão
+- Leao
 - Macaco
 - Elefante
 - Tratador
@@ -104,8 +98,7 @@ As atividades realizadas são armazenadas em um banco de dados SQLite (`zoo.db`)
 zoo-management-system/
 
 ├── database/
-│   ├── database.py
-│   └── zoo.db
+│   └── database.py
 │
 ├── src/
 │   ├── animal.py
@@ -132,14 +125,15 @@ zoo-management-system/
 ## 📊 Diagrama do Sistema
 
 ```text
-Animal
-├── Leao
-├── Macaco
-└── Elefante
-
-Tratador
 Administrador
-Recinto
+│
+├── Animal
+│   ├── Leao
+│   ├── Macaco
+│   └── Elefante
+│
+├── Tratador
+└── Recinto
 ```
 
 ---
@@ -292,6 +286,4 @@ Durante o desenvolvimento deste projeto foram praticados:
 
 ## 📌 Conclusão
 
-O projeto começou como trabalho final da disciplina de Programação Orientada a Objetos e foi evoluído com persistência de dados em SQLite, testes automatizados utilizando Pytest e versionamento com Git e GitHub.
-
-Além dos conceitos de orientação a objetos, o projeto permitiu praticar organização de código, controle de versões, fluxo de desenvolvimento baseado em branches e validação automatizada de funcionalidades, aproximando o sistema das práticas utilizadas em projetos reais de desenvolvimento de software.
+O projeto foi inicialmente desenvolvido como trabalho final da disciplina de Programação Orientada a Objetos e posteriormente evoluído com banco de dados, testes automatizados e boas práticas de versionamento.
