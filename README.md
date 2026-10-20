@@ -1,14 +1,16 @@
-# 🦁 Sistema de Gerenciamento de Zoológico
+# 🦁 Zoo Management System
 
 ## 👩‍💻 Desenvolvido por
 
 Karina Gabriela Ferreira de Oliveira
 
+---
+
 ## 📖 Descrição
 
-Projeto Final da disciplina de Programação Orientada a Objetos (POO).
+Projeto desenvolvido inicialmente como trabalho final da disciplina de Programação Orientada a Objetos (POO) e posteriormente evoluído com persistência de dados utilizando SQLite, testes automatizados com Pytest e versionamento utilizando Git e GitHub.
 
-O sistema simula o gerenciamento de um zoológico, permitindo o controle de animais, tratadores, recintos e atividades diárias, como alimentação, tratamento, limpeza e banho de sol. Além disso, o administrador pode acompanhar e registrar todas as atividades realizadas.
+O sistema simula o gerenciamento de um zoológico, permitindo o controle de animais, tratadores, recintos e atividades diárias, como alimentação, tratamento veterinário, limpeza de recintos e banho de sol. Além disso, o administrador pode acompanhar e registrar todas as atividades realizadas.
 
 ---
 
@@ -20,16 +22,54 @@ O sistema simula o gerenciamento de um zoológico, permitindo o controle de anim
 - Registrar banho de sol
 - Registrar atividades realizadas
 - Exibir relatório de atividades
-- Salvar atividades em arquivo
-- Ler histórico de atividades armazenadas
+- Persistir atividades em banco de dados SQLite
+- Consultar histórico de atividades registradas
 
 ---
 
-## 🧩 Conceitos de POO Utilizados
+## 🛠️ Tecnologias
+
+- Python
+- SQLite
+- Pytest
+- Git
+- GitHub
+
+---
+
+## 🧩 Conceitos Aplicados
+
+### Programação Orientada a Objetos
+
+- Classes e Objetos
+- Herança
+- Polimorfismo
+- Encapsulamento
+- Separação de Responsabilidades
+
+### Banco de Dados
+
+- SQLite
+- Persistência de Dados
+- Operações de Inserção (INSERT)
+- Operações de Consulta (SELECT)
+
+### Qualidade de Software
+
+- Testes Automatizados
+- Pytest
+- Versionamento com Git
+- Desenvolvimento baseado em Branches
+- Pull Requests
+
+---
+
+## 🧬 Conceitos de POO Utilizados
 
 ### Classes
+
 - Animal
-- Leao
+- Leão
 - Macaco
 - Elefante
 - Tratador
@@ -37,19 +77,24 @@ O sistema simula o gerenciamento de um zoológico, permitindo o controle de anim
 - Administrador
 
 ### Herança
+
 As classes `Leao`, `Macaco` e `Elefante` herdam da classe `Animal`.
 
 ### Polimorfismo
+
 Cada animal possui sua própria implementação do método `tratar()`, permitindo comportamentos diferentes para cada espécie.
 
 ### Encapsulamento
+
 Os atributos e métodos foram organizados dentro de classes responsáveis por cada entidade do sistema.
 
 ### Tratamento de Exceções
-O sistema utiliza blocos `try/except` para validar entradas do usuário e evitar falhas durante a execução.
 
-### Manipulação de Arquivos
-As atividades realizadas são armazenadas no banco de dados `zoo.db` e podem ser consultadas posteriormente.
+O sistema utiliza blocos `try/except` para evitar falhas durante a execução e lidar com cenários inesperados.
+
+### Persistência de Dados
+
+As atividades realizadas são armazenadas em um banco de dados SQLite (`zoo.db`) e podem ser consultadas posteriormente.
 
 ---
 
@@ -58,49 +103,111 @@ As atividades realizadas são armazenadas no banco de dados `zoo.db` e podem ser
 ```text
 zoo-management-system/
 
-src/
-
-├── models/
+├── database/
+│   ├── database.py
+│   └── zoo.db
+│
+├── src/
 │   ├── animal.py
+│   ├── tratador.py
 │   ├── recinto.py
-│   └── tratador.py
+│   ├── administrador.py
+│   ├── arquivos.py
+│   └── main.py
 │
-├── services/
-│   └── administrador.py
+├── tests/
+│   ├── test_animal.py
+│   ├── test_tratador.py
+│   └── test_recinto.py
 │
-├── repository/
-│   └── arquivos.py
-│
-└── main.py
-
-docs/
-images/
-README.md
+├── docs/
+├── images/
+├── README.md
+├── requirements.txt
+└── .gitignore
 ```
 
 ---
 
-## Diagrama do Sistema
-├── Animal
-│   ├── Leao
-│   ├── Macaco
-│   └── Elefantet
-│
-├── Tratador
-├── Administrador
-├── Recinto
+## 📊 Diagrama do Sistema
 
+```text
+Animal
+├── Leao
+├── Macaco
+└── Elefante
+
+Tratador
+Administrador
+Recinto
+```
+
+---
 
 ## ▶️ Como Executar
 
-1. Abra o terminal na pasta do projeto.
-2. Execute o comando:
+Clone o repositório:
 
 ```bash
-python main.py
+git clone https://github.com/kguiga/zoo-management-system.git
 ```
 
-3. Escolha uma das opções do menu para interagir com o sistema.
+Acesse a pasta do projeto:
+
+```bash
+cd zoo-management-system
+```
+
+Crie um ambiente virtual:
+
+```bash
+python -m venv .venv
+```
+
+Ative o ambiente virtual:
+
+### Windows (PowerShell)
+
+```bash
+.venv\Scripts\Activate.ps1
+```
+
+Instale as dependências:
+
+```bash
+pip install -r requirements.txt
+```
+
+Execute o sistema:
+
+```bash
+python src/main.py
+```
+
+---
+
+## 🧪 Executando os Testes
+
+Execute:
+
+```bash
+python -m pytest
+```
+
+Resultado atual:
+
+```text
+16 testes automatizados executados com sucesso
+```
+
+Cobertura atual:
+
+- Animal
+- Leão
+- Macaco
+- Elefante
+- Tratador
+- Recinto
 
 ---
 
@@ -108,12 +215,13 @@ python main.py
 
 ```text
 ===== ZOOLÓGICO =====
+
 1 - Alimentar animal
 2 - Tratar animal
 3 - Limpar recinto
 4 - Banho de sol
 5 - Relatório
-6 - Ler arquivo
+6 - Ler histórico
 0 - Sair
 ```
 
@@ -121,10 +229,10 @@ Exemplo:
 
 ```text
 Escolha o animal:
+
 1 - Simba (Leão)
 2 - Caco (Macaco)
 3 - Dumbo (Elefante)
-4 - Melman (Girafa)
 
 Animal: 1
 
@@ -142,16 +250,48 @@ Simba foi alimentado com Carne
 - Polimorfismo
 - Encapsulamento
 - Tratamento de Exceções
-- Manipulação de Arquivos
+- SQLite
+- Persistência de Dados
 - Listas
 - Menu Interativo
 - Controle de Animais
 - Controle de Tratadores
 - Controle de Recintos
 - Relatório Administrativo
+- Testes Automatizados
+- Versionamento com Git
+
+---
+
+## 📚 Aprendizados
+
+Durante o desenvolvimento deste projeto foram praticados:
+
+- Programação Orientada a Objetos
+- Modelagem de Domínio
+- Herança e Polimorfismo
+- Persistência de Dados
+- SQLite
+- Testes Automatizados com Pytest
+- Controle de Versão com Git
+- Fluxo de desenvolvimento utilizando Branches e Pull Requests
+- Organização de projetos Python
+
+---
+
+## 🚀 Próximas Evoluções
+
+- Adição de Type Hints
+- Ampliação da cobertura de testes
+- Refatoração utilizando SQLAlchemy
+- Migração para FastAPI
+- Criação de API REST
+- Containerização com Docker
 
 ---
 
 ## 📌 Conclusão
 
-O projeto permitiu aplicar os principais conceitos de Programação Orientada a Objetos em Python por meio da simulação do gerenciamento de um zoológico. Foram implementadas funcionalidades de controle de animais, tratadores e recintos, além do registro e acompanhamento das atividades realizadas diariamente.
+O projeto começou como trabalho final da disciplina de Programação Orientada a Objetos e foi evoluído com persistência de dados em SQLite, testes automatizados utilizando Pytest e versionamento com Git e GitHub.
+
+Além dos conceitos de orientação a objetos, o projeto permitiu praticar organização de código, controle de versões, fluxo de desenvolvimento baseado em branches e validação automatizada de funcionalidades, aproximando o sistema das práticas utilizadas em projetos reais de desenvolvimento de software.
